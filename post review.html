@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            padding: 100px;
+        }
+
+        textarea {
+            width: 200px;
+            height: 100px;
+            border: 1px solid pink;
+            /* outline: none;
+            resize: none; */
+            outline-color: red;
+            resize: none;
+        }
+
+        ul {
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: pink;
+            cursor: pointer;
+        }
+
+        ul li {
+            color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea name="" id=""></textarea>
+    <button>发布</button>
+    <button class="cancle">删除留言</button>
+    <ul>
+        <p>留言记录</p>
+    </ul>
+    <script>
+        let text = document.querySelector('textarea');
+        let but = document.querySelector('button');
+        let ul = document.querySelector('ul');
+        //
+        but.onclick = function () {
+            if (text.value == '') {
+                return false
+            } else {
+                let li = document.createElement('li');
+                li.innerHTML = text.value;
+                ul.appendChild(li);
+                text.value = ''
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
