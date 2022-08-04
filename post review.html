@@ -37,6 +37,11 @@
 
         ul li {
             color: brown;
+            width: 300px;
+        }
+
+        ul li a {
+            float: right;
         }
     </style>
 </head>
@@ -44,7 +49,7 @@
 <body>
     <textarea name="" id=""></textarea>
     <button>post</button>
-    <button class="cancle">delete my post</button>
+
     <ul>
         <p>record</p>
     </ul>
@@ -54,17 +59,22 @@
         let ul = document.querySelector('ul');
         //
         but.onclick = function () {
-            if (text.value == '') {
-                return false
-            } else {
-                let li = document.createElement('li');
-                li.innerHTML = text.value;
-                ul.appendChild(li);
-                text.value = ''
+                if (text.value == '') {
+                    return false
+                } else {
+                    let li = document.createElement('li');
+                    li.innerHTML = text.value + "<a href = javascript:> delete </a>";
+                    ul.appendChild(li);
+                    text.value = '';
+                    let del = document.querySelectorAll('a');
+                    for (let i = 0; i < del.length; i++) {
+                        del[i].onclick = function () {
+                            ul.removeChild(del[i].parentNode);
+
+                        }
+                    }
+                }
             }
-        }
-
-
     </script>
 </body>
 
